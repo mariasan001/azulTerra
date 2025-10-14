@@ -33,7 +33,7 @@ export default function Hero(){
               preload="metadata"
               poster="/images/placeholder-hero.jpg"
             >
-              <source src="/video/video_fondo.mp4" type="video/mp4" />
+              <source src="/video/VIDEO_FONDO.mp4" type="video/mp4" />
             </video>
             <div className={css.vignette} />
           </div>

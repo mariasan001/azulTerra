@@ -1,5 +1,54 @@
-.wrap{ display:grid; grid-template-columns: .8fr 1.2fr; gap:18px; }
-.media{ min-height:260px; background: linear-gradient(180deg,#ece7dd,#fff); border:1px solid var(--border); border-radius: var(--radius-3); }
-.copy{ background: var(--surface); border:1px solid var(--border); border-radius: var(--radius-3); padding:18px; }
-.list{ display:grid; grid-template-columns:1fr 1fr; gap:8px 24px; padding-left: 18px; }
-@media (max-width: 900px){ .wrap{ grid-template-columns:1fr; } .list{ grid-template-columns:1fr; } }
+/* Panel único (sin imagen) */
+.panel{
+  background: var(--surface);
+  border:1px solid var(--border);
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: var(--shadow-1);
+  display:grid; gap:16px;
+  align-content:start;
+}
+
+/* Header */
+.head{ display:grid; gap:6px; }
+.tag{
+  display:inline-flex; align-items:center; gap:6px;
+  background:#111827; color:#fff; border-radius:999px;
+  padding:6px 10px; font-weight:800; font-size:12px; width:max-content;
+}
+
+/* Bloques internos */
+.group{ display:grid; gap:10px; }
+.kicker{
+  font-size:12px; text-transform:uppercase; letter-spacing:.08em;
+  color: var(--text-muted); font-weight:800;
+}
+
+/* Cards de ítems */
+.cards{
+  display:grid; gap:10px;
+  grid-template-columns: repeat(2,1fr);
+}
+.card{
+  background:#fff; border:1px solid var(--border);
+  border-radius:16px; padding:12px;
+  display:flex; align-items:center; gap:10px;
+  box-shadow: var(--shadow-1);
+  transition: transform var(--motion-fast) ease, background var(--motion-fast) ease, box-shadow var(--motion-fast) ease;
+}
+.card:hover{ transform: translateY(-1px); background:#f9fbff; }
+.icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:12px;
+  background:#F2F6FF; border:1px solid #DDE6FF; color: var(--brand);
+}
+.cardText{ font-weight:800; }
+
+/* Nota y CTAs */
+.note{ margin:-2px 0 0; color: var(--text-muted); font-size:13px; }
+.ctas{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+
+/* Responsive */
+@media (max-width: 880px){
+  .cards{ grid-template-columns: 1fr; }
+}

@@ -1,0 +1,241 @@
+/* Split más contenido */
+.split {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1.05fr 1fr;
+  /* formulario : imagen */
+  align-items: stretch;
+}
+
+/* PANEL (form) */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 16px;
+  /* ↓ antes 18px */
+  box-shadow: var(--shadow-1);
+  display: grid;
+  gap: 10px;
+  /* ↓ antes 12px */
+  align-content: start;
+}
+
+/* MEDIA (imagen) */
+.media {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+  min-height: 320px;
+  /* ↓ antes 360px */
+  box-shadow: var(--shadow-1);
+}
+
+.media.compact {
+  min-height: 300px;
+}
+
+/* aún más bajita si hace falta */
+
+.photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .08) 0%, rgba(0, 0, 0, .28) 85%);
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(50% 40% at 18% 18%, rgba(37, 99, 235, .18), transparent 60%),
+    radial-gradient(50% 40% at 82% 82%, rgba(214, 179, 106, .18), transparent 60%);
+  mix-blend-mode: screen;
+  animation: glowMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(-2%, 2%, 0) scale(1.02);
+  }
+}
+
+/* Chips */
+.chips {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .85);
+  color: #0B1324;
+  border: 1px solid var(--border);
+  font-weight: 800;
+  font-size: 12px;
+}
+
+/* Form */
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+/* ↓ antes 12px */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  /* ↓ antes 18px */
+  padding: 12px;
+  /* ↓ antes 14px */
+  box-shadow: var(--shadow-1);
+  display: grid;
+  gap: 8px;
+  /* ↓ antes 10px */
+}
+
+.cardHead {
+  font-weight: 900;
+  letter-spacing: -.01em;
+}
+
+.grid2 {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ↓ gap */
+@media (max-width:800px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field label {
+  font-weight: 800;
+  color: var(--text);
+}
+
+.field input {
+  height: 42px;
+  /* ↓ antes 44px */
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  font-weight: 700;
+}
+
+.hint {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: -2px 0 0;
+}
+
+.pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 10px;
+  /* ↓ antes 8px 12px */
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform var(--motion-fast) ease, background var(--motion-fast) ease;
+}
+
+.pill:hover {
+  transform: translateY(-1px);
+}
+
+.active {
+  background: #EAF2FF;
+  border-color: #dbe6ff;
+}
+
+.chkRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ↓ gap */
+.chk {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.chk input {
+  accent-color: var(--brand);
+}
+
+.textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  background: #fff;
+  font-weight: 600;
+  min-height: 90px;
+  /* ↓ 96px */
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Responsive: apila y reduce aún más la imagen */
+@media (max-width: 920px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .media {
+    min-height: 240px;
+  }
+
+  /* ↓ en móvil */
+}

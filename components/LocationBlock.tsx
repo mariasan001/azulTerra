@@ -1,8 +1,13 @@
 "use client";
 import css from "./LocationBlock.module.css";
-import { MapPin, Ruler, Landmark, ShieldCheck, Trees } from "lucide-react";
+import {
+  MapPin, Ruler, Landmark, ShieldCheck, Trees,
+  ExternalLink, Send
+} from "lucide-react";
 import { useEffect, useRef } from "react";
 import { track } from "@/lib/track";
+import Button from "@/ui/Button";
+import { waLink } from "@/lib/wa";
 
 const DATA = {
   estado: "Estado de México",
@@ -12,7 +17,11 @@ const DATA = {
   estatusLegal: "Propiedad privada",
 };
 
-export default function ProjectOverview(){
+// ⚠️ Sustituye por tus coordenadas reales o Place ID
+const mapsUrl =
+  "https://www.google.com/maps?q=MEZTLI+RESIDENCIAL,+Estado+de+M%C3%A9xico";
+
+export default function LocationBlock(){
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,28 +34,34 @@ export default function ProjectOverview(){
     return ()=> io.disconnect();
   }, []);
 
+  const onMaps = () => track("map_open_click", { source:"panel" });
+  const onMapsFloat = () => track("map_open_click", { source:"media_fab" });
+  const onWA = () => track("map_whatsapp_request", { project: DATA.proyecto });
+
   return (
     <section className="container">
       <div className={css.wrap} ref={ref}>
-        {/* Media: elige Video o Google Maps */}
+        {/* Media: video + botón flotante de Maps */}
         <div className={css.media} aria-label="Mapa y ubicación">
-          {/* Opción A: Video en movimiento (recomendado para estética) */}
           <img className={css.poster} src="/images/placeholder-location.jpg" alt="" />
           <video
             className={css.video}
             autoPlay muted loop playsInline preload="metadata"
             poster="/images/placeholder-location.jpg"
           >
-            <source src="/video/map_meztli.mp4" type="video/mp4" />
+            <source src="/video/VIDEO_TERRENOS.mp4" type="video/mp4" />
           </video>
           <div className={css.glow} />
-          {/* ----- Opción B: Google Maps (si prefieres en vivo) -----
-          <iframe
-            className={css.map}
-            src="https://www.google.com/maps?q=Estado%20de%20M%C3%A9xico&output=embed"
-            loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-          />
-          --------------------------------------------------------- */}
+          <a
+            className={css.mediaCta}
+            href={mapsUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={onMapsFloat}
+            aria-label="Abrir ubicación en Google Maps"
+          >
+            <ExternalLink size={16}/> Ver en Maps
+          </a>
         </div>
 
         {/* Info panel */}
@@ -54,7 +69,17 @@ export default function ProjectOverview(){
           <header className={css.header}>
             <div className={css.tag}><MapPin size={16}/> Operamos en</div>
             <h2 className={css.title}>{DATA.estado}</h2>
-            <div className={css.proyecto}>{DATA.proyecto}</div>
+
+            {/* Logo del desarrollo */}
+            <div className={css.brand}>
+              <img
+                className={css.logo}
+                src="/images/logo_meztli.jpg"
+                alt="MEZTLI RESIDENCIAL"
+                decoding="async"
+                loading="lazy"
+              />
+            </div>
           </header>
 
           <div className={css.grid}>
@@ -67,8 +92,8 @@ export default function ProjectOverview(){
             <div className={css.card}>
               <Trees className={css.icon} size={18}/>
               <div className={css.label}>Amenidades</div>
-              <div className={css.chips}>
-                {DATA.amenidades.map((a,i)=>(<span key={i} className={css.chip}>{a}</span>))}
+              <div className={css.amenities}>
+                {DATA.amenidades.map((a,i)=>(<span key={i} className={css.amenity}>{a}</span>))}
               </div>
             </div>
 
@@ -83,6 +108,21 @@ export default function ProjectOverview(){
               <div className={css.label}>Desarrollo</div>
               <div className={css.value}>{DATA.proyecto}</div>
             </div>
+          </div>
+
+          {/* CTAs de ubicación */}
+          <div className={css.ctas}>
+            <Button href={mapsUrl} onClick={onMaps} size="md">
+              <ExternalLink size={16}/> Ver ubicación exacta
+            </Button>
+            <Button
+              href={waLink(`Hola, ¿me compartes la ubicación exacta de ${DATA.proyecto} en ${DATA.estado}?`)}
+              onClick={onWA}
+              variant="ghost"
+              size="md"
+            >
+              <Send size={16}/> Recibir por WhatsApp
+            </Button>
           </div>
 
           <p className={css.note}>

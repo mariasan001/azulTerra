@@ -1,5 +1,5 @@
 export const ENV = {
-  BRAND: process.env.NEXT_PUBLIC_BRAND || "AzulTerra",
+  BRAND: process.env.NEXT_PUBLIC_BRAND || "TERRENOSENTOLUCA.COM",
   WA: (process.env.NEXT_PUBLIC_WA_NUMBER || "").replace(/\D+/g, ""),
   USE_GTM: process.env.NEXT_PUBLIC_USE_GTM === "true",
   GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || "",
