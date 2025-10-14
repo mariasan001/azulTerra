@@ -1,4 +1,186 @@
-.grid{ display:grid; gap:10px; grid-template-columns: repeat(4,1fr); }
-.item{ height:140px; background: linear-gradient(180deg,#ececec,#fff); border:1px solid var(--border); border-radius: 18px; }
-@media (max-width: 1000px){ .grid{ grid-template-columns: repeat(3,1fr); } }
-@media (max-width: 700px){ .grid{ grid-template-columns: repeat(2,1fr); } }
+.head {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #111827;
+    color: #fff;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-weight: 800;
+    font-size: 12px;
+    width: max-content;
+}
+
+/* ...encabezado y tags: igual que ya tienes... */
+
+/* Grid quilt (6 ítems) */
+.grid {
+    --gap: 10px;
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: #fff;
+    padding: 0;
+    cursor: pointer;
+    transition: transform var(--motion-fast) ease, box-shadow var(--motion-fast) ease, border-color var(--motion-fast) ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-1);
+    border-color: #dbe6ff;
+}
+
+/* contenedor para Image fill */
+.frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* el alto lo da el aspect-ratio de las clases de tamaño */
+}
+
+.img {
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Overlay sutil */
+.fx {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(45% 35% at 15% 15%, rgba(37, 99, 235, .12), transparent 60%),
+        radial-gradient(45% 35% at 85% 85%, rgba(214, 179, 106, .12), transparent 60%);
+    mix-blend-mode: screen;
+}
+
+/* Tamaños */
+.square {
+    grid-column: span 4;
+    aspect-ratio: 4 / 3;
+}
+
+.tall {
+    grid-column: span 4;
+    aspect-ratio: 2 / 3;
+}
+
+.poster {
+    grid-column: span 4;
+    aspect-ratio: 3 / 4;
+}
+
+.wide {
+    grid-column: span 8;
+    aspect-ratio: 13 / 9;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    .square,
+    .tall,
+    .poster {
+        grid-column: span 4;
+    }
+
+    .wide {
+        grid-column: span 8;
+    }
+}
+
+@media (max-width: 700px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .square,
+    .tall,
+    .poster,
+    .wide {
+        grid-column: span 4;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* Lightbox (dejamos .lbImg sin object-fit para que quepa completa) */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+    display: grid;
+    place-items: center;
+    z-index: 60;
+    padding: 20px;
+}
+
+.lightboxInner {
+    position: relative;
+    max-width: min(1100px, 92vw);
+    max-height: 86vh;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+}
+
+.lbImg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.lbCtas {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .6));
+}
+
+.lbBtn {
+    height: 38px;
+    min-width: 38px;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    background: rgba(255, 255, 255, .1);
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+}
+
+.lbClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    background: rgba(255, 255, 255, .08);
+    color: #fff;
+    font-weight: 900;
+    cursor: pointer;
+}

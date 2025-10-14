@@ -1,7 +1,114 @@
-.wrap{ display:grid; grid-template-columns: 1.1fr .9fr; gap:18px; }
-.media{ min-height:260px; background: linear-gradient(180deg,#e6efff,#fff); border:1px solid var(--border); border-radius: var(--radius-3); }
-.copy{ background: var(--surface); border:1px solid var(--border); border-radius: var(--radius-3); padding:18px; }
-.table{ width:100%; border-collapse: collapse; margin:16px 0; overflow:hidden; border-radius: 18px; }
-.table th, .table td{ border:1px solid var(--border); padding:12px; text-align:left; }
-.table thead th{ background:#f5f7fb; }
-@media (max-width: 900px){ .wrap{ grid-template-columns:1fr; } }
+.wrap{
+  background: var(--surface);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:18px;
+  box-shadow: var(--shadow-1);
+  display:grid; gap:14px;
+}
+
+/* Header */
+.head{ display:grid; gap:6px; }
+.tag{
+  display:inline-flex; align-items:center; gap:6px;
+  background:#111827; color:#fff; border-radius:999px;
+  padding:6px 10px; font-weight:800; font-size:12px; width:max-content;
+}
+
+/* ===== Tabla ===== */
+.tableWrap{
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#fff;
+  overflow:hidden;
+  box-shadow: var(--shadow-1);
+}
+
+.table{
+  width:100%;
+  border-collapse: collapse;
+  font-feature-settings: "tnum" on, "lnum" on; /* números tabulares */
+}
+
+/* ⬇️ Anclado a .table para CSS Modules */
+.table thead th{
+  background:#f5f7fb;
+  color:#0b1324;
+  text-align:left;
+  padding:12px 14px;
+  font-weight:900;
+  letter-spacing:.02em;
+  border-bottom:1px solid var(--border);
+}
+.thFirst{ min-width: 200px; }
+.thPick{ width: 130px; }
+
+.table tbody td{
+  padding:12px 14px;
+  border-top:1px solid var(--border);
+  vertical-align: middle;
+}
+
+/* Stripe por fila usando la clase .row */
+.row:nth-child(even){ background:#fcfdff; }
+
+.colPlan{ font-weight:800; }
+.planName{ display:flex; align-items:center; gap:8px; }
+.badgeReco{
+  background:#EAF2FF; color:#0B1324; border:1px solid #DDE6FF;
+  padding:4px 8px; border-radius:999px; font-size:11px; font-weight:800;
+}
+.planNote{ color: var(--text-muted); font-size:12px; font-weight:700; margin-top:2px; }
+
+.tdNum{ font-weight:900; letter-spacing:-.01em; white-space:nowrap; }
+.tdPick{ text-align:right; }
+
+.radio{
+  display:inline-flex; align-items:center; gap:8px;
+  background:#fff; border:1px solid var(--border); border-radius:999px;
+  padding:6px 10px; font-weight:800; cursor:pointer;
+  transition: transform var(--motion-fast) ease, background var(--motion-fast) ease, border-color var(--motion-fast) ease;
+}
+.radio:hover{ transform: translateY(-1px); }
+.radio input{ accent-color: var(--brand); }
+
+/* Fila activa */
+.active{ background:#f7faff; }
+.active td{ border-top-color:#dbe6ff; }
+
+/* CTA & Legal */
+.actions{ display:flex; justify-content:center; padding-top:4px; }
+.legal{ color: var(--text-muted); font-size:13px; }
+
+/* ===== Responsive: tarjetas en móvil ===== */
+@media (max-width: 760px){
+  .table thead{ display:none; }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td{
+    display:block; width:100%;
+  }
+
+  .table tr{ border-top:1px solid var(--border); }
+
+  .table tbody td{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:10px; padding:10px 14px;
+  }
+
+  .table tbody td::before{
+    content: attr(data-label);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color: var(--text-muted);
+    font-weight:800; font-size:12px;
+  }
+
+  .tdPick{ text-align:left; }
+  .thFirst, .thPick{ width:auto; }
+  .colPlan{ padding-top:14px; }
+  .planName{ font-size:16px; }
+}
+    

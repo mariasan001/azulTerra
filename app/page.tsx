@@ -9,7 +9,6 @@ import FinancingBlock from "@/components/FinancingBlock";
 import ProcessSteps from "@/components/ProcessSteps";
 import Gallery from "@/components/Gallery";
 import FaqForum from "@/components/FaqForum";
-import VisitTeaser from "@/components/VisitTeaser";
 import WaForm from "@/components/WaForm";
 import Footer from "@/components/Footer";
 
@@ -32,7 +31,6 @@ export default function Page() {
         <ProcessSteps />
         <Gallery />
         <FaqForum />
-        <VisitTeaser />
         <WaForm />
       </main>
 
@@ -40,3 +38,4 @@ export default function Page() {
     </>
   );
 }
+

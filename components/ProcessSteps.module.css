@@ -1,4 +1,100 @@
-.grid{ display:grid; gap:14px; grid-template-columns: repeat(2,1fr); list-style:none; padding:0; }
-.item{ display:flex; gap:12px; align-items:flex-start; padding:14px; border:1px solid var(--border); border-radius: 20px; background: var(--surface); box-shadow: var(--shadow-1); }
-.badge{ width:34px; height:34px; display:grid; place-items:center; border-radius:999px; background: #111827; color:#fff; font-weight:800; }
-@media (max-width: 900px){ .grid{ grid-template-columns:1fr; } }
+/* Header */
+.head{ display:grid; gap:6px; margin-bottom:8px; }
+.tag{
+  display:inline-flex; align-items:center; gap:6px;
+  background:#111827; color:#fff; border-radius:999px;
+  padding:6px 10px; font-weight:800; font-size:12px; width:max-content;
+}
+
+/* Grid / timeline (desktop) */
+.grid{
+  position:relative;
+  display:grid; gap:12px;
+  grid-template-columns: repeat(2,1fr);
+  list-style:none; padding:0; margin:0;
+}
+
+/* Línea de progreso (desktop) */
+.grid::before{
+  content:"";
+  position:absolute; left:calc(50% - 1px); top:6px; bottom:6px;
+  width:2px; background: linear-gradient(180deg,#e8ecf7,#dfe7ff);
+  border-radius:2px;
+}
+
+/* Card */
+.item{
+  position:relative;
+  display:flex; gap:12px; align-items:flex-start;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+  transition: transform var(--motion-fast) ease, box-shadow var(--motion-fast) ease, border-color var(--motion-fast) ease, background var(--motion-fast) ease;
+}
+.item:hover{
+  transform: translateY(-2px);
+  background:#f9fbff;
+  border-color:#dbe6ff;
+}
+
+/* Conectores a la línea central (solo desktop) */
+.item::after{
+  content:"";
+  position:absolute; top:calc(50% - 1px);
+  width:18px; height:2px;
+  background:#e5ebff; border-radius:2px;
+}
+.item:nth-child(odd)::after{ right:-9px; }   /* conecta a la línea central */
+.item:nth-child(even)::after{ left:-9px; }
+
+/* Badge */
+.badge{
+  position:relative;
+  width:34px; height:34px; min-width:34px;
+  display:grid; place-items:center;
+  border-radius:999px;
+  background:#111827; color:#fff; font-weight:800;
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+.badgeIcon{
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  color:#c7d2fe; opacity:.35;
+}
+.badgeNum{
+  position:relative; z-index:1;
+  font-weight:900; font-size:14px; letter-spacing:.02em;
+}
+
+/* Texto */
+.copy{ display:grid; gap:4px; min-width:0; }
+.title{ margin:0; font-weight:900; letter-spacing:-.01em; }
+.desc{ margin:0; color: var(--text); }
+
+/* ===================== */
+/*      RESPONSIVE       */
+/* ===================== */
+
+/* Tablet: una columna, línea a la izquierda con conectores cortos */
+@media (max-width: 900px){
+  .grid{ grid-template-columns:1fr; }
+  .grid::before{ left:20px; }              /* línea se mueve al margen izquierdo */
+  .item{ padding-left:56px; }              /* espacio para badge/línea */
+  .item::after{ left:36px; width:16px; }   /* conector hacia la línea */
+}
+
+/* Móvil: sin línea ni conectores; layout limpio */
+@media (max-width: 640px){
+  .grid::before{ content:none; }
+  .item{ padding-left:14px; }              /* volvemos a padding normal */
+  .item::after{ content:none; }            /* quitamos conectores */
+  .badge{ position:static; }               /* badge fluye, no se solapa */
+}
+
+/* Accesibilidad: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .item{ transition:none; }
+}
