@@ -1,0 +1,5 @@
+.list{ display:grid; gap:10px; }
+.item{ border:1px solid var(--border); border-radius: 18px; background: var(--surface); padding:12px 14px; box-shadow: var(--shadow-1); }
+.item summary{ cursor:pointer; font-weight:800; list-style:none; }
+.item summary::-webkit-details-marker{ display:none; }
+.item[open]{ background:#fff; }

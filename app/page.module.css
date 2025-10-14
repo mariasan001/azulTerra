@@ -1,0 +1,7 @@
+.main{ display:grid; gap: var(--space-8); }
+.section{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-1);
+}

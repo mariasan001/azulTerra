@@ -1,0 +1,4 @@
+.grid{ display:grid; gap:10px; grid-template-columns: repeat(4,1fr); }
+.item{ height:140px; background: linear-gradient(180deg,#ececec,#fff); border:1px solid var(--border); border-radius: 18px; }
+@media (max-width: 1000px){ .grid{ grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 700px){ .grid{ grid-template-columns: repeat(2,1fr); } }

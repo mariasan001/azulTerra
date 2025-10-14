@@ -1,0 +1,10 @@
+.head{ display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
+.grid{ display:grid; gap:14px; grid-template-columns: repeat(3,1fr); }
+.card{ background:#fff; border:1px solid var(--border); border-radius:24px; padding:10px; box-shadow: var(--shadow-1); }
+.thumb{ height:160px; border-radius:20px; background: linear-gradient(180deg,#e9ecef,#fff); border:1px solid var(--border); }
+.meta{ display:flex; justify-content:space-between; margin:10px 4px 0; }
+.name{ font-weight:800; }
+.size{ color: var(--text-muted); }
+.price{ margin:8px 4px 6px; font-weight:700; }
+@media (max-width: 1000px){ .grid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 640px){ .grid{ grid-template-columns: 1fr; } }

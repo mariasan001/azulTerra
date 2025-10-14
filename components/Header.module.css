@@ -1,0 +1,9 @@
+.header{ position: sticky; top:0; z-index: 20; backdrop-filter: blur(8px);
+  background: rgba(255,255,255,.7); border-bottom:1px solid var(--border);
+}
+.inner{ display:flex; align-items:center; justify-content:space-between; height:76px; }
+.brand{ font-weight:800; color:var(--text); letter-spacing:.2px; font-size:20px; }
+.nav{ display:none; gap:24px; }
+.nav a{ color:var(--text); text-decoration:none; font-weight:600; opacity:.8; }
+.nav a:hover{ opacity:1; }
+@media (min-width: 900px){ .nav{ display:flex; } }

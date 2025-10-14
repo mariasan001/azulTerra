@@ -1,0 +1,7 @@
+.wrap{ display:grid; grid-template-columns: 1.1fr .9fr; gap:18px; }
+.media{ min-height:260px; background: linear-gradient(180deg,#e6efff,#fff); border:1px solid var(--border); border-radius: var(--radius-3); }
+.copy{ background: var(--surface); border:1px solid var(--border); border-radius: var(--radius-3); padding:18px; }
+.table{ width:100%; border-collapse: collapse; margin:16px 0; overflow:hidden; border-radius: 18px; }
+.table th, .table td{ border:1px solid var(--border); padding:12px; text-align:left; }
+.table thead th{ background:#f5f7fb; }
+@media (max-width: 900px){ .wrap{ grid-template-columns:1fr; } }

@@ -1,0 +1,5 @@
+.wrap{ display:grid; grid-template-columns: .8fr 1.2fr; gap:18px; }
+.media{ min-height:260px; background: linear-gradient(180deg,#ece7dd,#fff); border:1px solid var(--border); border-radius: var(--radius-3); }
+.copy{ background: var(--surface); border:1px solid var(--border); border-radius: var(--radius-3); padding:18px; }
+.list{ display:grid; grid-template-columns:1fr 1fr; gap:8px 24px; padding-left: 18px; }
+@media (max-width: 900px){ .wrap{ grid-template-columns:1fr; } .list{ grid-template-columns:1fr; } }

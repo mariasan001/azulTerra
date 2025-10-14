@@ -1,0 +1,8 @@
+.footer{ margin: var(--space-8) 0 var(--space-6); padding: var(--space-6) 0; background: #111827; color:#fff; border-radius: 24px; }
+.grid{ display:flex; justify-content:space-between; gap:24px; padding:0 var(--space-4); }
+.brand{ font-weight:900; font-size:22px; }
+.links{ display:flex; gap:16px; }
+.a{ color: #d1d7e0; text-decoration:none; }
+.a:hover{ color:#fff; }
+.copy{ margin-top:12px; color:#d1d7e0; font-size:14px; padding:0 var(--space-4); }
+@media (max-width:700px){ .grid{ flex-direction:column; } }
