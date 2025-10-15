@@ -18,6 +18,7 @@ export default function Header(){
           <a href="#financiamiento">Financiamiento</a>
           <a href="#proceso">Proceso</a>
           <a href="#faq">FAQ</a>
+          <a href="#contacto">Contacto</a>
         </nav>
         <Button href={waLink("Hola, me interesa información de "+ENV.BRAND)} onClick={onWA} variant="primary" size="md">
           <Phone size={18}/> WhatsApp

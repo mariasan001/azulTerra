@@ -43,9 +43,7 @@ export default function Gallery(){
   return (
     <section className="container" id="galeria">
       <header className={css.head}>
-        <div className={css.tag}>Galería</div>
-        <h2 className="h2">Collage curado</h2>
-        <p className="p">Optimizada con <code>next/image</code> para cargar rápido.</p>
+       
       </header>
 
       <div className={css.grid}>
