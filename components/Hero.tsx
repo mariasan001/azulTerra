@@ -19,7 +19,7 @@ export default function Hero(){
           <div className={css.media} aria-hidden>
             <img
               className={css.poster}
-              src="/images/placeholder-hero.jpg"
+              src="/images/placeholder-hero.webp"
               alt=""
               loading="eager"
               decoding="sync"
@@ -31,7 +31,7 @@ export default function Hero(){
               loop
               playsInline
               preload="metadata"
-              poster="/images/placeholder-hero.jpg"
+              poster="/images/placeholder-hero.webp"
             >
               <source src="/video/VIDEO_FONDO.mp4" type="video/mp4" />
             </video>

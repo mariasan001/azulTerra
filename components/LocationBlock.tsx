@@ -43,11 +43,11 @@ export default function LocationBlock(){
       <div className={css.wrap} ref={ref}>
         {/* Media: video + botón flotante de Maps */}
         <div className={css.media} aria-label="Mapa y ubicación">
-          <img className={css.poster} src="/images/placeholder-location.jpg" alt="" />
+          <img className={css.poster} src="/images/placeholder-location.webp" alt="" />
           <video
             className={css.video}
             autoPlay muted loop playsInline preload="metadata"
-            poster="/images/placeholder-location.jpg"
+            poster="/images/placeholder-location.webp"
           >
             <source src="/video/VIDEO_TERRENOS.mp4" type="video/mp4" />
           </video>
@@ -74,7 +74,7 @@ export default function LocationBlock(){
             <div className={css.brand}>
               <img
                 className={css.logo}
-                src="/images/logo_meztli.jpg"
+                src="/images/logo_meztli.webp"
                 alt="MEZTLI RESIDENCIAL"
                 decoding="async"
                 loading="lazy"

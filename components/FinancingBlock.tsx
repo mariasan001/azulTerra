@@ -16,8 +16,8 @@ type Plan = {
 };
 
 const PLANS: Plan[] = [
-  { id: "p12-30", enganchePct: 30, months: 12, rate: "0%*", note: "Cuotas bajas" },
-  { id: "p18-40", enganchePct: 40, months: 18, rate: "0%*", note: "Equilibrado" },
+  { id: "p12-30", enganchePct: 30, months: 24, rate: "0%*", note: "Cuotas bajas" },
+  { id: "p18-40", enganchePct: 40, months: 24, rate: "0%*", note: "Equilibrado" },
   { id: "p24-50", enganchePct: 50, months: 24, rate: "0%*", note: "Mejor precio", recommended: true },
 ];
 
@@ -48,7 +48,7 @@ export default function FinancingBlock(){
         <header className={css.head}>
           <div className={css.tag}><Percent size={14}/> Financiamiento a tu medida</div>
           <h2 className="h2">Elige el plan que te convenga</h2>
-          <p className="p">Desde 12 hasta 24 meses. Enganche flexible (30%, 40% o 50%).</p>
+          <p className="p">Hasta 24 meses. Enganche flexible (30%, 40% o 50%).</p>
         </header>
 
         {/* Tabla responsiva (tabla en desktop, cards en móvil) */}

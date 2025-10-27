@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Phone, Mail, Clock, Facebook, Instagram, Send } from "lucide-react";
 const BRAND = ENV.BRAND || "AzulTerra";
 const PHONE = ENV.PHONE || "+52 55 0000 0000";
-const EMAIL = ENV.EMAIL || "ventas@azulterra.mx";
 const WHATS = ENV.WA || "525500000000"; // <- antes usabas ENV.WHATSAPP
 const HOURS = ENV.HOURS || "Lun–Vie 9:00–18:00";
 const VERIFY_URL = ENV.VERIFY_URL || "#";
@@ -36,11 +35,7 @@ export default function Footer() {
                   <Phone size={16}/> <span>{PHONE}</span>
                 </a>
               </li>
-              <li>
-                <a className={css.row} href={`mailto:${EMAIL}`}>
-                  <Mail size={16}/> <span>{EMAIL}</span>
-                </a>
-              </li>
+      
               <li className={css.rowMuted}>
                 <Clock size={16}/> <span>{HOURS}</span>
               </li>

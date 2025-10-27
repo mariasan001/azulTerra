@@ -123,7 +123,7 @@ return (
 
       {/* 👉 IMAGEN después */}
       <aside className={`${css.media} ${css.compact}`}>
-        <img className={css.photo} src="/images/IMG_1.jpg" alt="Lotes desde 200 m²" loading="lazy" decoding="async" />
+        <img className={css.photo} src="/images/IMG_1.webp" alt="Lotes desde 200 m²" loading="lazy" decoding="async" />
         <div className={css.vignette} />
         <div className={css.glow} aria-hidden />
         <div className={css.chips}>

@@ -7,11 +7,11 @@ type Slot = "square" | "tall" | "wide" | "poster";
 type Item = { src: string; slot: Slot; alt?: string };
 
 const ITEMS: Item[] = [
-  { src: "/images/IMG_1.jpg", slot: "wide",   alt: "Vista general" },
-  { src: "/images/IMG_2.jpg", slot: "poster", alt: "Área de lotes" },
-  { src: "/images/IMG_3.jpg", slot: "square", alt: "Detalle vertical" },
-  { src: "/images/IMG_4.jpg", slot: "square", alt: "Entorno" },
-  { src: "/images/IMG_5.jpg", slot: "square", alt: "Poste/infraestructura" },
+  { src: "/images/IMG_1.webp", slot: "wide",   alt: "Vista general" },
+  { src: "/images/IMG_11.webp", slot: "poster", alt: "Área de lotes" },
+  { src: "/images/IMG_10.webp", slot: "square", alt: "Detalle vertical" },
+  { src: "/images/IMG_4.webp", slot: "square", alt: "Entorno" },
+  { src: "/images/IMG_5.webp", slot: "square", alt: "Poste/infraestructura" },
 ];
 
 // Placeholder shimmer (no requiere imports estáticos)
